@@ -1,1 +1,12 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Lambda Function to Compress Json to Zip
 
+Resources:
+  MyLambdaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: app.py
+      Runtime: python3.8
+      FunctionName: CompressJsonVideos
+      Timeout: 10
