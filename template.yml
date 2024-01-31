@@ -10,3 +10,8 @@ Resources:
       Runtime: python3.8
       FunctionName: CompressJsonVideos
       Timeout: 10
+
+    MyS3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: jsonvideos    
