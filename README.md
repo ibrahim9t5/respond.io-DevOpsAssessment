@@ -5,7 +5,7 @@
 Install Python3,
 Install and Configure AWS CLI,
 Install AWS SAM CLI,
-#########################################################################################################################
+######################################################################################
 
 ############################ TASK 1 #######################
 Step 1
@@ -23,11 +23,11 @@ Create Custom Role and Permission for Lambda function to get,put and delete obj 
 
 ############################ TASK 2 #######################
 Create S3 Bucket that will have Json Video Files and Connect with LAMBDA in Template File
-#########################################################################################################################
+##############################################################################################
 
 ########### To run this project run: #####################
 sam deploy --capabilities CAPABILITY_NAMED_IAM (in terminal)
-########################################################################################################################
+##############################################################################################
 
 ############################ TASK 4 ########################
 ######################## Cost Analysis ##################### 
@@ -61,7 +61,7 @@ Optimize Lambda Memory: If the Lambda function can run with less memory, you can
 
 Compression: Optimize the compression algorithm to reduce the output file size, which can lead to lower storage and transfer costs.
 
-######################################################################################################################################
+#########################################################################################
 
 ####################### TASK 5 #####################################
 
@@ -86,7 +86,7 @@ Monitoring and Logging: Implement comprehensive monitoring and logging to identi
 To address these concerns and bottlenecks, you might consider implementing solutions such as using Different S3 class to archive the Video files which I think is the best solution.
 
 Thanks
-
+######################################################################################
 ########################################################################################################################################
 
 
