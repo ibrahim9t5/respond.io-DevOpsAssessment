@@ -1,7 +1,7 @@
 import json
 import os
 import boto3
-import zip
+import zipfile
 
 def lambda_handler(event, context):
     return {
