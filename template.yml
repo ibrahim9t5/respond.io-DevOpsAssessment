@@ -3,6 +3,36 @@ Transform: AWS::Serverless-2016-10-31
 Description: Lambda Function to Compress Json to Zip
 
 Resources:
+  MyLambdaFunctionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: MyLambdaFunctionRole
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: LambdaBasicExecutionPolicy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: '*'
+              - Effect: Allow
+                Action:
+                  - s3:HeadObject
+                  - s3:GetObject
+                  - s3:PutObject
+                  - s3:DeleteObject
+                Resource: '*'
+
   MyLambdaFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -10,6 +40,7 @@ Resources:
       Runtime: python3.8
       FunctionName: CompressJsonVideos
       Timeout: 10
+      Role: !GetAtt MyLambdaFunctionRole.Arn
       Events:
         S3Event:
           Type: S3
@@ -21,4 +52,10 @@ Resources:
   MyS3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: jsonvideos    
+      BucketName: jsonvideos
+
+Outputs:
+  MyS3BucketOutput:
+    Value: !Ref MyS3Bucket
+    Export:
+      Name: MyS3Bucket          
