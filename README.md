@@ -8,6 +8,7 @@ Install AWS SAM CLI,
 ######################################################################################
 
 ############################ TASK 1 #######################
+
 Step 1
 create Lambda Function using SAM
 
@@ -22,14 +23,19 @@ Step 4
 Create Custom Role and Permission for Lambda function to get,put and delete obj from S3 bucket
 
 ############################ TASK 2 #######################
+
 Create S3 Bucket that will have Json Video Files and Connect with LAMBDA in Template File
+
 ##############################################################################################
 
 ########### To run this project run: #####################
+
 sam deploy --capabilities CAPABILITY_NAMED_IAM (in terminal)
+
 ##############################################################################################
 
 ############################ TASK 4 ########################
+
 ######################## Cost Analysis ##################### 
 
 ######################### LAMBDA COST ######################
