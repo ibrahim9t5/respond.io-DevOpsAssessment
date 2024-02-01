@@ -3,7 +3,7 @@ Transform: AWS::Serverless-2016-10-31
 Description: Lambda Function to Compress Json to Zip
 
 Resources:
-  MyLambdaFunctionRole:
+  MyLambdaFunctionRole:   ### create custom service role for Lambda ###
     Type: AWS::IAM::Role
     Properties:
       RoleName: MyLambdaFunctionRole
@@ -33,7 +33,8 @@ Resources:
                   - s3:DeleteObject
                 Resource: '*'
 
-  MyLambdaFunction:
+#### create lambda function #####
+  MyLambdaFunction:   
     Type: AWS::Serverless::Function
     Properties:
       Handler: app.lambda_handler
@@ -49,6 +50,7 @@ Resources:
               Ref: MyS3Bucket
             Events: s3:ObjectCreated:*
 
+### create s3 bucket for json video files ####
   MyS3Bucket:
     Type: AWS::S3::Bucket
     Properties:
